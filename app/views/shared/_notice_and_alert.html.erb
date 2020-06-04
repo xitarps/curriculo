@@ -1,0 +1,7 @@
+
+<% if notice %>
+  <%= javascript_tag "M.toast({html: '#{notice}'}, 9000)" unless notice.nil? %>
+<% end %>
+<% if alert %>
+  <%= javascript_tag "M.toast({html: '#{alert}'}, 9000)" unless alert.nil? %>
+<% end %>

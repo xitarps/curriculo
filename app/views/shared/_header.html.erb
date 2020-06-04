@@ -1,15 +1,45 @@
 <nav>
   <div class="nav-wrapper amber darken-2">
-    <a href="#!" class="brand-logo">
+    <a href="<%= root_path %>" class="brand-logo">
         <i class="material-icons">home</i>Home
                   </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Login</a></li>
+      <% if !logged_in? %>
+        <li>
+          <%= link_to  "Sign in", signin_path %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to  "Dashboard", dashboard_path %>
+        </li>
+        <li>
+          <%= link_to  "Sign out", signout_path, method: :delete %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li><a href="sass.html">&#128274;Login</a></li>
+
+<% if !logged_in? %>
+  <li>
+    <%= link_to signin_path do %>
+    &#128274; Sign in
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to  "Dashboard", dashboard_path %>
+  </li>
+  <li>
+    <%= link_to  "Sign out", signout_path, method: :delete %>
+  </li>
+<% end %>
+  
+  
+
+  
+
 </ul>  
