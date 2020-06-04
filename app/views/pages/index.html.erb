@@ -1,49 +1,54 @@
 <div class="main_board center-align row">
       <div class="title board_item text  block indigo darken-2">
-        Rodrigo<br>
-        Xita
+        <%= @personal_info.name.split()[0]%><br>
+        <%= @personal_info.nickname%>
       </div>
       <div class="board_item text  block light-blue darken-2">
-        Olá!<br>
-        Interesse em t.i?<br>
+        <%= @personal_info.greeting%>
       </div>
   </div>
 
   <div class="info_board center-align row"></div>
     <div class="title board_item text text_greeting block teal darken-2">
-        Contente por estar aqui!
-        Aqui encontrará meu curriculo em forma de portifólio.
-        Desenvolvido com Html, Css, Javascript, Ruby etc.
-        Mais detalhes? Tenho contas no github e gitlab.
-        Se interessou pelo meu cv?
-        Há meu linkedin também.
+      <%= raw @personal_info.text_hook%>
+        
     </div>
   </div>
 
 
   <ul class="collection block my_list">
     <li class="collection-item">
+      <a href="<%= personal_info_path %>" class='black-text'>
       <div><i class="material-icons">face</i>Personal Info</div>
+      </a>
     </li>
     <li class="collection-item">
-      <div><i class="material-icons">school</i>Academics</div>
+      <a href="#" class='black-text'>
+        <div><i class="material-icons">school</i>Academics</div>
+      </a>
     </li>
     <li class="collection-item">
-      <div><i class="material-icons">book</i>Courses</div>
+      <a href="#" class='black-text'>
+        <div><i class="material-icons">book</i>Courses</div>
+      </a>
     </li>
     <li class="collection-item">
-      <div><i class="material-icons">build</i>Tech knowledge</div>
+      <a href="#" class='black-text'>
+        <div><i class="material-icons">build</i>Tech knowledge</div>
+      </a>
     </li>
     <li class="collection-item">
+      <a href="#" class='black-text'>
         <div><i class="material-icons">insert_drive_file</i>Plain curriculum</div>
+      </a>
     </li>
   </ul>
 
 
   <ul class="block collection with-header">
     <li id ="social" class="collection-header">
-      <%= link_to image_tag("github.png", width: '50px'), '#' %>
-      <%= link_to image_tag("GitLab_Logo.svg", width: '50px'), '#' %>
-      <%= link_to image_tag("linkedin.png", width: '50px'), '#' %>
+      <%= link_to image_tag("github.png", width: '50px'), @personal_info.github %>
+      <%= link_to image_tag("GitLab_Logo.svg", width: '50px'), @personal_info.gitlab %>
+      <%= link_to image_tag("linkedin.png", width: '50px'),  @personal_info.linkedin %>
     </li>
   </ul>

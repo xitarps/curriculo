@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
 
   get 'dashboard', to: 'pages#dashboard'
+
+  get 'personal_info', to: 'personal_info#display'
+  get 'edit_personal_info', to: 'personal_info#edit'
+  patch 'edit_personal_info', to: 'personal_info#update'
+
+  resources :languages, , only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end

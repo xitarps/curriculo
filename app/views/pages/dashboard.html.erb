@@ -1,2 +1,30 @@
-Dashboard
-<%= current_user.email  if logged_in?%>
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 style="color: #8f8f8f !important; font-weight: normal;">Dashboard</h4>
+          <h6 style="color: #8f8f8f6c !important; font-weight: normal;"><%= current_user.email  if logged_in?%></h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="collection">
+            <%= link_to  "Personal info", personal_info_path, class: "collection-item"%>
+            <%= link_to  "Languages", languages_path, class: "collection-item"%>
+            <a href="#!" class="collection-item">Languages</a>
+            <a href="#!" class="collection-item">Academics</a>
+            <a href="#!" class="collection-item">Courses</a>
+            <a href="#!" class="collection-item">Tech knowledge</a>
+            <a href="#!" class="collection-item">Social</a>
+            <a href="#!" class="collection-item">Plain curriculum preview</a>
+          </div>
+        </div>
+      </div>
+            
+      
+
+    </div>
+</div>

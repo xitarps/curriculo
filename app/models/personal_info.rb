@@ -1,0 +1,24 @@
+class PersonalInfo < ApplicationRecord
+  validates :name, presence: true
+  validates :nickname, presence: true
+  validates :birthday, presence: true
+  validates :gender, presence: true
+  validates :country, presence: true
+  validates :state, presence: true
+  validates :city, presence: true
+  validates :neighborhood, presence: true
+  validates :street, presence: true
+  validates :number, presence: true
+  validates :zipcode, presence: true
+  validates :phone_a, presence: true
+  validates :phone_b, presence: true
+  validates :email, presence: true
+  validates :relationship, presence: true
+  validates :focus, presence: true
+  validates :greeting, presence: true
+  validates :text_hook, presence: true
+  validates :github, presence: true
+  validates :gitlab, presence: true
+  validates :linkedin, presence: true
+  validates :footer_text, presence: true
+end

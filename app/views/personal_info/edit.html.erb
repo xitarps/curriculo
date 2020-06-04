@@ -1,0 +1,174 @@
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 style="color: #8f8f8f !important; font-weight: normal;">Edit Social info</h4>
+        </div>
+      </div>
+
+      <%= form_with model: @personal_info, url: edit_personal_info_path, local: true do |f| %>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :name,  class:"validate input_field", placeholder:"example@example.com" %>
+            <%= f.label :name, "Nome:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :nickname,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :nickname, "Apelido/Sobrenome:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.date_field :birthday,  class:"datepicker validate input_field" %>
+            <%= f.label :birthday, "Nascimento:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :gender,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :gender, "Gênero:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :country,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :country, "País:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :state,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :state, "Estado:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :city,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :city, "Cidade:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :neighborhood,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :neighborhood, "Bairro:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :street,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :street, "Rua/Avenida:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :number,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :number, "Número:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :zipcode,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :zipcode, "Cep:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :phone_a,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :phone_a, "Tel(1):"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :phone_b,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :phone_b, "Tel(2):"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :email,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :email, "Email:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :relationship,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :relationship, "Estado civil:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :focus,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :focus, "Objetivo:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :greeting,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :greeting, "Msg de recepção:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :text_hook,  class:"validate input_field" %>
+            <%= f.label :text_hook, "Introdução:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :github,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :github, "Github:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :gitlab,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :gitlab, "Gitlab:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :linkedin,  class:"validate input_field", placeholder:"******" %>
+            <%= f.label :linkedin, "Linkedin:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.submit "Save", class:"waves-effect waves-light btn-small amber darken-2 white-text"%>
+          </div>
+        </div>
+
+      <% end %>
+
+
+
+
+      
+      
+
+    </div>
+</div>

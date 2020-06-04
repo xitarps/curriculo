@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :fetch_personal_info
   def new
     @user = User.new
   end
@@ -25,6 +26,10 @@ class SessionsController < ApplicationController
 
   def session_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def fetch_personal_info
+    @personal_info = PersonalInfo.first
   end
   
 end

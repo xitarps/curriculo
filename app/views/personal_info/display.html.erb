@@ -1,0 +1,40 @@
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+        <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+        <% if logged_in?%>
+          <a href="<%= edit_personal_info_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Edit</a>
+        <% end %>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;">Personal info</h4>
+        </div>
+      </div>
+
+      <div class="info_board center-align row"></div>
+        <div class="title board_item text text_greeting block blue darken-4">
+            <p><%= @personal_info.name %><sub class="sub"><%= @personal_info.nickname %></sub></p>
+            <p><%= ((Time.zone.now - @personal_info.birthday.to_time) / 1.year.seconds).floor %> anos</p>
+            <p><%= @personal_info.gender %></p>
+            <p>
+              <%= @personal_info.country %> - 
+              <%= @personal_info.state %> - 
+              <%= @personal_info.city %>
+            </p>
+            <p><%= @personal_info.street %> <%= @personal_info.number %></p>
+            <p><%= @personal_info.neighborhood %></p>
+            <p><%= @personal_info.relationship %></p>
+            <p><%= @personal_info.email %></p>
+            <p><%= @personal_info.phone_a %></p>
+            <p><%= @personal_info.phone_b %></p>
+        </div>
+        <div class="title board_item text text_greeting block lime darken-3">
+          <p><%= @personal_info.focus %></p>
+            
+        </div>
+      </div>
+      
+
+    </div>
+</div>
