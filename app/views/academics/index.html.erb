@@ -3,17 +3,55 @@
       
         <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
         <% if logged_in?%>
-          <a href="<%= new_language_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">New</a>
+          <a href="<%= new_academic_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">New</a>
         <% end %>
       
       <div class="row">
         <div class="input-field col s12">
-          <h4 class="h4" style="margin: 0 !important;">Languages</h4>
+          <h4 class="h4" style="margin: 0 !important;">Formação</h4>
         </div>
       </div>
 
       <div class="info_board center-align row"></div>
 
+
+      <% @academics.each do |academic| %>
+
+        <div class="title board_item text text_greeting block lime darken-4" style="padding: 0.5em !important;">
+        
+          <ul style="padding: 0 !important; margin: 0 !important;">
+            <li>
+              <%= academic.institution %>
+            </li>
+            <li>
+              <%= academic.course %>
+            </li>
+            <li>
+              Início: <%= academic.start_date.month %>/<%= academic.start_date.year %>
+              <% if academic.done == 'Concluido'%>
+               - Fim: <%= academic.start_date.month %>/<%= academic.start_date.year %>
+              <% else %>
+
+              <% end %>
+            </li>
+            <% if logged_in?%>
+              <li>
+                <%= link_to  "Edit", edit_academic_path(academic), style: 'text-decoration: none !important; color: black !important; font-weight: normal; margin: 0; padding: 0'  %>
+                <%= link_to  "Delete", academic_path(academic), method: :delete, style: 'text-decoration: none !important; color: red !important; font-weight: normal; margin: 0; padding: 0' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        </p>
+      <% end %>
+
+      <hr>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;">Idiomas</h4>
+        </div>
+      </div>
 
       <% @languages.each do |language| %>
 

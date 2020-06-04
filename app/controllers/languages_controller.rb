@@ -12,7 +12,7 @@ class LanguagesController < ApplicationController
 
   def create
     @language = Language.new(language_params)
-    return redirect_to languages_path if @language.save
+    return redirect_to academics_path if @language.save
     flash.now[:alert] = "Campo não pode ficar vazio"
     render :new
   end
@@ -23,7 +23,7 @@ class LanguagesController < ApplicationController
 
   def update
     @language = Language.find(params[:id])
-    return redirect_to languages_path if @language.update(language_params)
+    return redirect_to academics_path if @language.update(language_params)
     flash.now[:alert] = "Campo não pode ficar vazio"
     render :new
   end
@@ -31,7 +31,7 @@ class LanguagesController < ApplicationController
   def destroy
     @language = Language.find(params[:id])
     @language.delete
-    redirect_to languages_path
+    redirect_to academics_path
   end
 
   private

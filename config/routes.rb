@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   patch 'edit_personal_info', to: 'personal_info#update'
 
   resources :languages, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :academics, only: [:index, :new, :create, :edit, :update, :destroy]
 end
