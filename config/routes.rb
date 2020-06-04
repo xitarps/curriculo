@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get 'edit_personal_info', to: 'personal_info#edit'
   patch 'edit_personal_info', to: 'personal_info#update'
 
-  resources :languages, , only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :languages, only: [:index, :new, :create, :edit, :update, :destroy]
 end

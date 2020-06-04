@@ -1,0 +1,12 @@
+<%= link_to  "New", new_language_path %>
+<% @languages.each do |language| %>
+  <p>
+    <%= language.language %>
+    <%= language.institution %>
+    <%= language.start_date %>
+    <%= language.end_date %>
+    <%= language.level %>
+    <%= link_to  "Edit", edit_language_path(language) %>
+    <%= link_to  "Delete", language_path(language), method: :delete %>
+  </p>
+<% end %>
