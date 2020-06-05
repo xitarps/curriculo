@@ -101,7 +101,7 @@
         &nbsp;<a><%= @personal_info.linkedin %></a><br>
         <br>
         &bull; Portfolio/cv<br>
-        &nbsp;<a><%= request.original_url %></a><br>
+        &nbsp;<a><%= (request.original_url).gsub('/plaincv','') %></a><br>
     </p>
 
 </div>
