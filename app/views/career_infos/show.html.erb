@@ -1,29 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+        <a href="<%= career_infos_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+        <% if logged_in?%>
+          <a href="<%= edit_career_info_path(@career_info) %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Edit</a>
+        <% end %>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;">Experiência profissional</h4>
+        </div>
+      </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @career_info.company %>
-</p>
+      <div class="info_board center-align row"></div>
+        <div class="title board_item text text_greeting block blue darken-4">
+            <p><%= @career_info.company %></p>
+            
+            <p><%= @career_info.work_function %></p>
+            <p>
+              Início: <%= @career_info.start_date.month %>/<%= @career_info.start_date.year %>
+            </p>
+              <% unless @career_info.end_date.nil?%>
+                <p>
+                  Fim: <%= @career_info.end_date.month %>/<%= @career_info.end_date.year %>
+                </p>
+              <% else %>
 
-<p>
-  <strong>Work function:</strong>
-  <%= @career_info.work_function %>
-</p>
+              <% end %>
+            </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @career_info.start_date %>
-</p>
+        </div>
+        <div class="title board_item text text_greeting block lime darken-3">
+          <p><%= @career_info.description %></p>
+            
+        </div>
+      </div>
+      
 
-<p>
-  <strong>End date:</strong>
-  <%= @career_info.end_date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @career_info.description %>
-</p>
-
-<%= link_to 'Edit', edit_career_info_path(@career_info) %> |
-<%= link_to 'Back', career_infos_path %>
+    </div>
+</div>

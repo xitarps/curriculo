@@ -1,4 +1,6 @@
 class CareerInfosController < ApplicationController
+  before_action :require_user, except: %i[index show]
+  before_action :fetch_personal_info
   before_action :set_career_info, only: [:show, :edit, :update, :destroy]
 
   # GET /career_infos
@@ -70,5 +72,9 @@ class CareerInfosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def career_info_params
       params.require(:career_info).permit(:company, :work_function, :start_date, :end_date, :description)
+    end
+
+    def fetch_personal_info
+      @personal_info = PersonalInfo.first
     end
 end
