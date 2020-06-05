@@ -1,0 +1,65 @@
+<div class="main_board center-align row">
+  <div class="title board_item text  block ">
+    
+      <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+      <% if logged_in?%>
+        <a href="<%= new_course_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">New</a>
+      <% end %>
+    
+    <div class="row">
+      <div class="input-field col s12">
+        <h4 class="h4" style="margin: 0 !important;">Cursos</h4>
+      </div>
+    </div>
+
+    <div class="info_board center-align row"></div>
+
+    <% @colors= ['indigo', 'grey']%>
+    <% @index = 0 %>
+
+    <% @courses_grouped=@courses.group_by {|item| item.school} %>
+    <% @courses_grouped.each do |group| %>
+        <% group[1].each do |course| %>
+
+          <div class="title board_item text text_greeting block <%= (@index.even?)? @colors[0] : @colors[1]%> darken-4" style="padding: 0.5em !important">
+  
+            <ul style="padding: 0 !important; margin: 0 !important;">
+              <li>
+                  <%= course.school %>
+              </li>
+              <hr/>
+              <li>
+                <%= course.name %>
+              </li>
+              <li>
+                <%= course.done_when.month %>/<%= course.done_when.year %>
+              </li>
+              <li>
+                <%= link_to  "Detalhes", course_path(course), style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 0'  %>
+              </li>
+              <% unless course.certificate.empty?%>
+                <li>
+                  <%= link_to  "Certificado", course.certificate %>
+                </li>
+              <% end %>
+              <% if logged_in?%>
+                <li>
+                  <%= link_to  "Edit", edit_course_path(course), style: 'text-decoration: none !important; color: black !important; font-weight: normal; margin: 0; padding: 0'  %>
+                  <%= link_to  "Delete", course_path(course), method: :delete, style: 'text-decoration: none !important; color: red !important; font-weight: normal; margin: 0; padding: 0' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          </p>
+
+
+        <% end %>
+        <% @index += 1 %>
+    <% end %>
+
+
+    </div>
+    
+
+  </div>
+</div>

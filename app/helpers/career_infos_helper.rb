@@ -1,0 +1,2 @@
+module CareerInfosHelper
+end

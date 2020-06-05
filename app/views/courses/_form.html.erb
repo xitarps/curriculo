@@ -1,0 +1,59 @@
+
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 style="color: #8f8f8f !important; font-weight: normal;">Courses</h4>
+        </div>
+      </div>
+
+      <%= form_with model: @course, local: true do |f| %>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :school,  class:"validate input_field", placeholder:"School" %>
+            <%= f.label :school, "Instituição:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :name,  class:"validate input_field", placeholder:"English" %>
+            <%= f.label :name, "Nome:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :description,  class:"validate input_field", placeholder:"English" %>
+            <%= f.label :description, "Descrição:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.date_field :done_when,  class:"datepicker validate input_field" %>
+            <%= f.label :done_when, "Data:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :certificate,  class:"validate input_field", placeholder:"Native" %>
+            <%= f.label :certificate, "Certificado(url):"%>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.submit "Save", class:"waves-effect waves-light btn-small amber darken-2 white-text"%>
+          </div>
+        </div>
+
+      <% end %>
+
+
+    </div>
+</div>

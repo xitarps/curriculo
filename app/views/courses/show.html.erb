@@ -1,0 +1,35 @@
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+        <a href="<%= courses_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+        <% if logged_in?%>
+          <a href="<%= edit_course_path(@course) %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Edit</a>
+        <% end %>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;">Personal info</h4>
+        </div>
+      </div>
+
+      <div class="info_board center-align row"></div>
+        <div class="title board_item text text_greeting block blue darken-4">
+            <p><%= @course.school %></p>
+            
+            <p><%= @course.name %></p>
+            <p><%= @course.done_when.month %>/<%= @course.done_when.year %></p>
+            <% unless @course.certificate.empty?%>
+                <p>
+                  <%= link_to  "Certificado", @course.certificate %>
+                </p>
+              <% end %>
+        </div>
+        <div class="title board_item text text_greeting block lime darken-3">
+          <p><%= @course.description %></p>
+            
+        </div>
+      </div>
+      
+
+    </div>
+</div>
