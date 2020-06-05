@@ -72,10 +72,10 @@
     <h3>Cursos</h3>
     <p>
         <% @courses_grouped.each do |group| %>
-           &bull;<%= group[0] %><br>
+           &bull; <%= group[0] %><br>
           <% group[1].each do |course| %>
             
-            &nbsp; - <%= course.name %><%= course.done_when.month %>/<%= course.done_when.year %>
+            &nbsp; - <%= course.name %> (<%= course.done_when.month %>/<%= course.done_when.year %>)
             <br>
           <% end %>
         <% end %>
@@ -91,13 +91,13 @@
 
     <h3>Páginas Pessoais</h3>
     <p>
-        &bull;Github<br>
+        &bull; Github<br>
         &nbsp;<a><%= @personal_info.github %></a><br>
 
-        &bull;Gitlab<br>
+        &bull; Gitlab<br>
         &nbsp;<a><%= @personal_info.gitlab %></a><br>
 
-        &bull;Linkedin<br>
+        &bull; Linkedin<br>
         &nbsp;<a><%= @personal_info.linkedin %></a><br>
     </p>
 
