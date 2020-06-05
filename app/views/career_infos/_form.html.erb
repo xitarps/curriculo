@@ -3,7 +3,7 @@
       
       <div class="row">
         <div class="input-field col s12">
-          <h4 style="color: #8f8f8f !important; font-weight: normal;">Formação profissional</h4>
+          <h4 style="color: #8f8f8f !important; font-weight: normal;">Experiência profissional</h4>
         </div>
       </div>
 
@@ -12,15 +12,15 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.text_field :company,  class:"validate input_field", placeholder:"School" %>
-            <%= f.label :company, "Instituição:"%>
+            <%= f.text_field :company,  class:"validate input_field", placeholder:"Empresa" %>
+            <%= f.label :company, "Empresa:"%>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.text_field :work_function,  class:"validate input_field", placeholder:"Direito" %>
-            <%= f.label :work_function, "Curso:"%>
+            <%= f.text_field :work_function,  class:"validate input_field", placeholder:"Contador" %>
+            <%= f.label :work_function, "Cargo:"%>
           </div>
         </div>
 
@@ -40,8 +40,8 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.text_field :description,  class:"validate input_field", placeholder:"Direito" %>
-            <%= f.label :description, "Curso:"%>
+            <%= f.text_area :description,  class:"validate input_field", placeholder:"" %>
+            <%= f.label :description, "Descrição:"%>
           </div>
         </div>
 
