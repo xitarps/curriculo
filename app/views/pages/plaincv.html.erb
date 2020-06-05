@@ -92,16 +92,16 @@
     <h3>Páginas Pessoais</h3>
     <p>
         &bull; Github<br>
-        &nbsp;<a><%= @personal_info.github %></a><br>
+        &nbsp;<a href="<%= @personal_info.github %>"><%= @personal_info.github %></a><br>
         <br>
         &bull; Gitlab<br>
-        &nbsp;<a><%= @personal_info.gitlab %></a><br>
+        &nbsp;<a href="<%= @personal_info.gitlab %>"><%= @personal_info.gitlab %></a><br>
         <br>
         &bull; Linkedin<br>
-        &nbsp;<a><%= @personal_info.linkedin %></a><br>
+        &nbsp;<a href="<%= @personal_info.linkedin %>"><%= @personal_info.linkedin %></a><br>
         <br>
         &bull; Portfolio/cv<br>
-        &nbsp;<a><%= (request.original_url).gsub('/plaincv','') %></a><br>
+        &nbsp;<a href="<%= (request.original_url).gsub('/plaincv','') %>"><%= (request.original_url).gsub('/plaincv','') %></a><br>
     </p>
 
 </div>
