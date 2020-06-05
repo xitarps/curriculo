@@ -9,7 +9,7 @@
 personal_info = PersonalInfo.create(
   name: 'Author',
   nickname: 'Jr',
-  birthday: '1990-19-08',
+  birthday: '1990-08-19',
   gender: 'Male',
   country: 'Brazil',
   state: 'SP',
@@ -28,5 +28,5 @@ personal_info = PersonalInfo.create(
   github: 'http://github.com',
   gitlab: 'http://gitlab.com',
   linkedin: 'http://linkedin.com',
-  footer_text: 'Made by: Author Jr',
+  footer_text: 'Made by: Author Jr'
 )
