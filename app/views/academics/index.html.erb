@@ -29,7 +29,7 @@
             <li>
               Início: <%= academic.start_date.month %>/<%= academic.start_date.year %>
               <% if academic.done == 'Concluido'%>
-               - Fim: <%= academic.start_date.month %>/<%= academic.start_date.year %>
+               - Fim: <%= academic.end_date.month %>/<%= academic.end_date.year %>
               <% else %>
 
               <% end %>
@@ -67,7 +67,7 @@
             <li>
               Início: <%= language.start_date.month %>/<%= language.start_date.year %>
               
-               - Fim: <%= language.start_date.month %>/<%= language.start_date.year %>
+               - Fim: <%= language.end_date.month %>/<%= language.end_date.year %>
             </li>
             <li>
               <%= language.level %>

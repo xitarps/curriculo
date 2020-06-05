@@ -1,0 +1,125 @@
+<div style="text-align: center !important;">
+</p>
+  <h4>Quer em arquivo Word? clique <a href="#" onclick="exportHTML();" style="text-align: center !important;">AQUI</a></h4>
+</div>
+<hr>
+<div id="source-html" style="text-align: center !important;">
+    <h1>
+        <center>Curriculum vitae</center>
+    </h1>
+    <h2><%= @personal_info.name%></h2>
+    <p>
+        <%= ((Time.zone.now - @personal_info.birthday.to_time) / 1.year.seconds).floor %> anos<br>
+        <%= @personal_info.gender%><br>
+        <%= @personal_info.street%><%= @personal_info.number%><br>
+        Cep: <%= @personal_info.zipcode%> - <%= @personal_info.city%> - <%= @personal_info.state%> , <%= @personal_info.neighborhood%><br>
+        Email:<%= @personal_info.email%><br>
+        Tel: <%= @personal_info.phone_a%><br>
+        Tel: <%= @personal_info.phone_b%>
+    </p>
+
+
+
+    <h3>Objetivo</h3>
+    <p>
+        <%= @personal_info.focus%>
+    </p>
+
+
+
+    <h3>Formação</h3>
+    <p>
+      <% @academics.each do |academic| %>
+        &bull; <%= academic.institution %> - 
+        <%= academic.course %> 
+        (<%= academic.start_date.month %>/<%= academic.start_date.year %>
+        <% if academic.done == 'Concluido'%>
+          - <%= academic.end_date.month %>/<%= academic.end_date.year %>
+        <% end %>)
+        <br>
+      <% end %>
+    </p>
+
+
+    <h3>Experiência Profissional</h3>
+    <p>
+      <% @career_infos.each do |career_info| %>
+        &bull; <%= career_info.company %> - 
+        <%= career_info.work_function %> 
+        (<%= career_info.start_date.month %>/<%= career_info.start_date.year %>
+        <% unless career_info.end_date.nil?%>
+        - <%= career_info.end_date.month %>/<%= career_info.end_date.year %>
+        <% end %>)<br>
+        Atividades do cargo: <%= career_info.description %><br>
+      <% end %>
+    </p>
+
+    <h3>Idiomas</h3>
+    <p>
+      <% @languages.each do |language| %>
+        &bull; <%= language.language %> - 
+        <%= language.institution %>
+        ( <%= language.start_date.month %>/<%= language.start_date.year %>
+        <% if language.end_date.year != Date.today.year%> 
+          &nbsp;- <%= language.end_date.month %>/<%= language.end_date.year %>
+        <% end %>), 
+        <%= language.level %> 
+        <br>
+      <% end %>
+    </p>
+
+
+    <h3>Cursos</h3>
+    <p>
+        <% @courses_grouped.each do |group| %>
+           &bull;<%= group[0] %><br>
+          <% group[1].each do |course| %>
+            
+            &nbsp; - <%= course.name %><%= course.done_when.month %>/<%= course.done_when.year %>
+            <br>
+          <% end %>
+        <% end %>
+
+    </p>
+
+    <h3>Conhecimentos específicos</h3>
+    <p>
+      <% @tools.each_with_index do |tool, index| %>
+        <%= tool.name %><%= (index < @tools.length - 1)? ", " : "." %> 
+      <% end %>
+    </p>
+
+    <h3>Páginas Pessoais</h3>
+    <p>
+        &bull;Github<br>
+        &nbsp;<a><%= @personal_info.github %></a><br>
+
+        &bull;Gitlab<br>
+        &nbsp;<a><%= @personal_info.gitlab %></a><br>
+
+        &bull;Linkedin<br>
+        &nbsp;<a><%= @personal_info.linkedin %></a><br>
+    </p>
+
+</div>
+
+
+<script>
+
+    function exportHTML(){
+       var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+            "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+            "xmlns='http://www.w3.org/TR/REC-html40'>"+
+            "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+       var footer = "</body></html>";
+       var sourceHTML = header+document.getElementById("source-html").innerHTML+footer;
+       
+       var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+       var fileDownload = document.createElement("a");
+       document.body.appendChild(fileDownload);
+       fileDownload.href = source;
+       fileDownload.download = '<%= @personal_info.name.split()[0].downcase + "_" +  @personal_info.nickname + '_curriculo_' +Date.today.year.to_s %>.doc';
+       fileDownload.click();
+       document.body.removeChild(fileDownload);
+    }
+</script>
