@@ -13,7 +13,7 @@
         <%= @personal_info.gender%><br>
         <%= @personal_info.street%><%= @personal_info.number%><br>
         Cep: <%= @personal_info.zipcode%> - <%= @personal_info.city%> - <%= @personal_info.state%> , <%= @personal_info.neighborhood%><br>
-        Email:<%= @personal_info.email%><br>
+        Email: <%= @personal_info.email%><br>
         Tel: <%= @personal_info.phone_a%><br>
         Tel: <%= @personal_info.phone_b%>
     </p>
@@ -101,7 +101,7 @@
         &bull; Linkedin<br>
         &nbsp;<a href="<%= @personal_info.linkedin %>"><%= @personal_info.linkedin %></a><br>
         <br>
-        &bull; Portfolio/cv<br>
+        &bull; Portfólio/cv<br>
         &nbsp;<a href="<%= (request.original_url).gsub('/plaincv','') %>"><%= (request.original_url).gsub('/plaincv','') %></a><br>
     </p>
 
