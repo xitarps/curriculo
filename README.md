@@ -32,3 +32,7 @@
   email: admin@admin.com
   password: admin123
   ```
+
+  ## Project in action:
+
+  https://xitarpscv.herokuapp.com/
