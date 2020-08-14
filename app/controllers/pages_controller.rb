@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   before_action :fetch_all_info, only: %i[plaincv]
   
   def index
+    record_visitor
   end
 
   def plaincv
@@ -11,6 +12,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = User.first
+    @week_visits = Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.zone.now.end_of_day).count
+    @today_visits = Visitor.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count
+    @yesterday_visits = Visitor.all.where(created_at: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day).count
   end
 
   private
@@ -28,4 +32,10 @@ class PagesController < ApplicationController
     @courses_grouped=@courses.group_by {|item| item.school}
     @tools = Tool.all
   end
+end
+
+private
+
+def record_visitor
+  Visitor.create(ip: request.remote_ip) unless logged_in?
 end

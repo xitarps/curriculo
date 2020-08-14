@@ -2,10 +2,14 @@
     <div class="title board_item text  block ">
       
 
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="row" style="margin-bottom: 0 !important;">
+        <div class="input-field col s12" style="margin-bottom: 20px !important;">
           <h4 style="color: #8f8f8f !important; font-weight: normal;">Dashboard</h4>
           <h6 style="color: #8f8f8f6c !important; font-weight: normal;"><%= current_user.email  if logged_in?%></h6>
+          <p style="color: grey; margin-top: 20px; padding: 0; margin-bottom: 10px;">Visitantes:</p>
+          <h6 style="color: grey; margin-top: 0; padding: 0;"> 
+          Esta semana(<%= @week_visits%>) Ontem(<%= @yesterday_visits%>) Hoje(<%= @today_visits%>)
+          </h6>
         </div>
       </div>
 
