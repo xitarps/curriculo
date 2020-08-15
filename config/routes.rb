@@ -21,5 +21,10 @@ Rails.application.routes.draw do
   resources :academics, only: [:index, :new, :create, :edit, :update, :destroy]
 
   get 'visitors', to: 'pages#visitors'
+
+  get 'visitors_json', to: 'pages#visitors_json'
+  get 'visitors_json_today', to: 'pages#visitors_json_today'
+  get 'visitors_json_week', to: 'pages#visitors_json_week'
+  get 'visitors_json_yesterday', to: 'pages#visitors_json_yesterday'
   
 end

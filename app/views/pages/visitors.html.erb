@@ -1,7 +1,7 @@
 <div class="main_board center-align row">
     <div class="title board_item text  block ">
       
-        <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+        <a href="<%= dashboard_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
       
       <div class="row">
         <div class="input-field col s12">
@@ -9,25 +9,119 @@
         </div>
       </div>
 
-      <div class="info_board center-align row"></div>
         <div class="title board_item text text_greeting block blue darken-4">
-            <p>
-              <% Visitor.all.group_by { |item| item.ip }.each do |group| %>
-                ip: <%= group[0]%><br>
-                <% group.each do |people| %>
-                  <% unless people.is_a?(String)%>
-                    <% people.reverse.each do |person| %>
-                      <%= person.ip %> - 
-                      <%= person.created_at %><br>
-                    <% end %>
-                  <% end %>
-
-                <% end %>
-                <hr>
-              <% end %>
+            <botao id="btn_all" class="custom_btn" onclick='fetch_all()'>Todos </botao> | 
+            <botao id="btn_today" class="custom_btn" onclick='fetch_today()'>Hoje </botao> | 
+            <botao id="btn_yesterday" class="custom_btn" onclick='fetch_yesterday()'>Ontem </botao> | 
+            <botao id="btn_week" class="custom_btn" onclick='fetch_week()'>Semana </botao>
+            <p id="ips">
             </p>
         </div>
+
       </div>
+
+      <script>
+
+        let all = '<%= visitors_json_path %>'
+        let today = '<%= visitors_json_today_path %>'
+        let yesterday = '<%= visitors_json_yesterday_path %>'
+        let week = '<%= visitors_json_week_path %>'
+
+        function start(form_req = 'all', when){
+          // 1. Create a new XMLHttpRequest object
+          let xhr = new XMLHttpRequest();
+
+          // 2. Configure it: GET-request for the URL /article/.../load
+          xhr.open('GET', when);
+
+          // 3. Send the request over the network
+          xhr.send();
+
+          // 4. This will be called after the response is received
+          xhr.onload = function() {
+            if (xhr.status != 200) { // analyze HTTP status of the response
+              alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+            } else { // show the result
+              //console.log(`Done, got ${xhr.response.length} bytes`); // response is the server
+              let resposta = JSON.parse(xhr.response)
+              
+              update_infos(form_req, resposta)
+
+            }
+          };
+
+          function update_infos(f_req, res){
+            let ips = document.querySelector('#ips')
+            ips.innerHTML = ""
+
+            /*let quando = ""
+            if(f_req=='all'){
+              quando = 'Todos'
+            }else if(f_req=='today'){
+              quando = 'Hoje'
+            }else if(f_req=='yesterday'){
+              quando = 'Ontem'
+            }else if(f_req=='week'){
+              quando = 'Ultimos 7 dias'
+            }
+            let p_range = document.createElement('p')
+            p_range.innerHTML = quando
+            ips.appendChild(p_range)*/
+
+            for(k in res){
+              
+              let p = document.createElement('p')
+              p.innerHTML = `${k} <br>(${res[k].length})`
+              ips.appendChild(p)
+
+            }
+              
+          }
+        }
+
+        let selected = "border-bottom: 5px solid #ffa000; padding-bottom: 10px; transition: 1s"
+        let blank = "border-bottom: 5px solid #ffa00000; padding-bottom: 10px; transition: 1s"
+
+        function fetch_all(){
+          start('all', all)
+          let btns = document.querySelectorAll('.custom_btn')
+          btns.forEach(element => {
+            element.style=blank
+          });
+          let btn = document.querySelector('#btn_all')
+          btn.style = selected
+        }
+        function fetch_today(){
+          start('today', today)
+          let btns = document.querySelectorAll('.custom_btn')
+          btns.forEach(element => {
+            element.style=blank
+          });
+          let btn = document.querySelector('#btn_today')
+          btn.style = selected
+        }
+        function fetch_yesterday(){
+          start('yesterday', yesterday)
+          let btns = document.querySelectorAll('.custom_btn')
+          btns.forEach(element => {
+            element.style=blank
+          });
+          let btn = document.querySelector('#btn_yesterday')
+          btn.style = selected
+        }
+        function fetch_week(){
+          start('week', week)
+          let btns = document.querySelectorAll('.custom_btn')
+          btns.forEach(element => {
+            element.style=blank
+          });
+          let btn = document.querySelector('#btn_week')
+          btn.style = selected
+        }
+
+        start('week', week)
+        
+      </script>
 
     </div>
 </div>

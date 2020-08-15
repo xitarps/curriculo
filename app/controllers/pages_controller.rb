@@ -18,8 +18,25 @@ class PagesController < ApplicationController
   end
 
   def visitors
-    @visitors = Visitor.all
+    @visitors = Visitor.all.order(created_at: :desc)
   end
+
+  def visitors_json
+    render json: Visitor.all.order(created_at: :desc).group_by { |item| item.ip }
+  end
+
+  def visitors_json_today
+    render json: Visitor.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+  end
+
+  def visitors_json_week
+    render json: Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.zone.now.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+  end
+
+  def visitors_json_yesterday
+    render json: Visitor.all.where(created_at: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+  end
+
 
   private
 
