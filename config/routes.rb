@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :languages, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :academics, only: [:index, :new, :create, :edit, :update, :destroy]
 
+  get 'visitors', to: 'pages#visitors'
   
 end

@@ -1,0 +1,33 @@
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+        <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;">Visitors</h4>
+        </div>
+      </div>
+
+      <div class="info_board center-align row"></div>
+        <div class="title board_item text text_greeting block blue darken-4">
+            <p>
+              <% Visitor.all.group_by { |item| item.ip }.each do |group| %>
+                ip: <%= group[0]%><br>
+                <% group.each do |people| %>
+                  <% unless people.is_a?(String)%>
+                    <% people.reverse.each do |person| %>
+                      <%= person.ip %> - 
+                      <%= person.created_at %><br>
+                    <% end %>
+                  <% end %>
+
+                <% end %>
+                <hr>
+              <% end %>
+            </p>
+        </div>
+      </div>
+
+    </div>
+</div>

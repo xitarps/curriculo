@@ -8,7 +8,18 @@
           <h6 style="color: #8f8f8f6c !important; font-weight: normal;"><%= current_user.email  if logged_in?%></h6>
           <p style="color: grey; margin-top: 20px; padding: 0; margin-bottom: 10px;">Visitantes:</p>
           <h6 style="color: grey; margin-top: 0; padding: 0;"> 
-          Esta semana(<%= @week_visits%>) Ontem(<%= @yesterday_visits%>) Hoje(<%= @today_visits%>)
+          Esta semana(<%= @week_visits%>) Ontem(<%= @yesterday_visits%>) Hoje(<%= @today_visits%>) <%= link_to  " ? ",
+                                                                                                       visitors_path,
+                                                                                                       style: 'background-color: white;
+                                                                                                               padding: 0 6px;
+                                                                                                               border-radius: 10px;
+                                                                                                               color: #00FF00;
+                                                                                                               color: #ffa000;
+                                                                                                               font-weight: bold;
+                                                                                                               box-shadow: 1px 0px 5px #0000004f;
+                                                                                                               box-shadow: 0px 0px 5px #ffa0009f;
+                                                                                                       '
+                                                                                                       %>
           </h6>
         </div>
       </div>

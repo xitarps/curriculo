@@ -17,6 +17,10 @@ class PagesController < ApplicationController
     @yesterday_visits = Visitor.all.where(created_at: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day).count
   end
 
+  def visitors
+    @visitors = Visitor.all
+  end
+
   private
 
   def fetch_personal_info
