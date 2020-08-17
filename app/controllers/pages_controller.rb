@@ -12,9 +12,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = User.first
-    @week_visits = Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.zone.now.end_of_day).count
-    @today_visits = Visitor.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count
-    @yesterday_visits = Visitor.all.where(created_at: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day).count
+    @week_visits = Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.current.end_of_day).count
+    @today_visits = Visitor.all.where(created_at: Time.current.beginning_of_day..Time.current.end_of_day).count
+    @yesterday_visits = Visitor.all.where(created_at: Time.current.yesterday.beginning_of_day..Time.current.yesterday.end_of_day).count
   end
 
   def visitors
@@ -26,15 +26,15 @@ class PagesController < ApplicationController
   end
 
   def visitors_json_today
-    render json: Visitor.all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+    render json: Visitor.all.where(created_at: Time.current.beginning_of_day..Time.current.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
   end
 
   def visitors_json_week
-    render json: Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.zone.now.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+    render json: Visitor.all.where(created_at: 7.days.ago.beginning_of_day..Time.current.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
   end
 
   def visitors_json_yesterday
-    render json: Visitor.all.where(created_at: Time.zone.yesterday.beginning_of_day..Time.zone.yesterday.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
+    render json: Visitor.all.where(created_at: Time.current.yesterday.beginning_of_day..Time.current.yesterday.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
   end
 
 
