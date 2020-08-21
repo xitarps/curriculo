@@ -33,11 +33,12 @@
                 </my_block>
               </a>
 
-              <%= link_to  "Github", project.repo, style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 0'  %>
-              <br>
+              <%= link_to  "Github", project.repo, style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 5px 0'  %>
+              
               <%= link_to  "Detalhes", project_path(project), style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 0'  %>
-              <br>
+              
               <% if logged_in?%>
+                  <br>
                   <%= link_to  "Edit", edit_project_path(project), style: 'text-decoration: none !important; color: black !important; font-weight: normal; margin: 0; padding: 0'  %>
                   <%= link_to  "Delete", project_path(project), method: :delete, style: 'text-decoration: none !important; color: red !important; font-weight: normal; margin: 0; padding: 0' %>
               <% end %>
