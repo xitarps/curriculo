@@ -11,11 +11,9 @@
     <p>
         <%= ((Time.zone.now - @personal_info.birthday.to_time) / 1.year.seconds).floor %> anos<br>
         <%= @personal_info.gender%><br>
-        <%= @personal_info.street%><%= @personal_info.number%><br>
-        Cep: <%= @personal_info.zipcode%> - <%= @personal_info.city%> - <%= @personal_info.state%> , <%= @personal_info.neighborhood%><br>
+        Endereço: <% @personal_info.zipcode%><%= @personal_info.city%> - <%= @personal_info.state%> , <%= @personal_info.neighborhood%><br>
         Email: <%= @personal_info.email%><br>
-        Tel: <%= @personal_info.phone_a%><br>
-        Tel: <%= @personal_info.phone_b%>
+        Tel: <%= @personal_info.phone_a%>
     </p>
 
 
