@@ -15,8 +15,9 @@
       <div class="info_board center-align row"></div>
         <div class="title board_item text text_greeting block blue darken-4">
             <p><%= @project.title %></p>
-            
-            <p><%= link_to  "Projeto em ação", @project.url %></p>
+            <% unless @project.url.nil? %>
+              <p><%= link_to  "Projeto em ação", @project.url %></p>
+            <% end %>
             <p><%= link_to  "Repositório do projeto", @project.repo %></p>
             
         </div>
