@@ -103,3 +103,52 @@ div{
 .waves-effect input[type="submit"] {
   color: white !important;
 }
+
+.custom_pulse{
+  border-radius: 15px;
+  box-shadow: 0 0 0 0 #ffa200;
+  animation: custom_pulse 1.5s infinite;
+}
+
+@keyframes custom_pulse {
+	0% {
+		box-shadow: 0 0 0 0 #ffa200e1;
+	}
+
+	70% {
+		box-shadow: 0 0 0 15px #ffa20000;
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 #ffa20000;
+	}
+}
+
+my_block{
+  background-size: cover;
+  background-position: center !important;
+  width: 100px;
+  height: 100px;
+  display: block;
+  border-radius: 5px;
+}
+my_block:hover{
+  box-shadow: 0 0 10px #ffffff;
+}
+
+my_container{
+  display: flex;
+  background-color: rgba(255, 255, 0, 0);
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+block_container{
+  background-color: rgba(255, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  min-width: 210px;
+  align-items: center;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}

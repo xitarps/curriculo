@@ -1,0 +1,31 @@
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+        <a href="<%= projects_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+        <% if logged_in?%>
+          <a href="<%= edit_project_path(@project) %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Edit</a>
+        <% end %>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 class="h4" style="margin: 0 !important;"><%= @project.title%></h4>
+        </div>
+      </div>
+
+      <div class="info_board center-align row"></div>
+        <div class="title board_item text text_greeting block blue darken-4">
+            <p><%= @project.title %></p>
+            
+            <p><%= link_to  "Projeto em ação", @project.url %></p>
+            <p><%= link_to  "Repositório do projeto", @project.repo %></p>
+            
+        </div>
+        <div class="title board_item text text_greeting block lime darken-3">
+          <p><%= image_tag(@project.image_url, style:"max-width: 220px !important;") %></p>
+            
+        </div>
+      </div>
+      
+
+    </div>
+</div>

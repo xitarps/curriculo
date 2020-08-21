@@ -1,0 +1,60 @@
+<div class="main_board center-align row">
+  <div class="title board_item text  block ">
+    
+      <a href="<%= root_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">Return</a>
+      <% if logged_in?%>
+        <a href="<%= new_project_path %>" style="text-decoration: none !important; color: #8f8f8f6c !important; font-weight: normal; margin: 0; padding: 0">New</a>
+      <% end %>
+    
+    <div class="row">
+      <div class="input-field col s12">
+        <h4 class="h4" style="margin: 0 !important;">Projetos</h4>
+      </div>
+    </div>
+
+    <div class="info_board center-align row"></div>
+
+    <% @colors= ['indigo', 'grey']%>
+    <% @index = 0 %>
+
+    
+        
+
+          <div class="title board_item text text_greeting block <%= (@index.even?)? @colors[0] : @colors[1]%> darken-4" style="padding: 0.5em !important">
+          
+          <my_container>
+            <% @projects.each do |project| %>
+
+            <block_container title="click me :D!">
+              <%= project.title %>
+
+              <a href="<%= project.url %>">
+                <my_block style="background: url(<%= project.thumb_url%>);" >
+                </my_block>
+              </a>
+
+              <%= link_to  "Github", project.repo, style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 0'  %>
+
+              <%= link_to  "Detalhes", project_path(project), style: 'text-decoration: none !important; color: dark-grey !important; font-weight: normal; margin: 0; padding: 0'  %>
+              
+              <% if logged_in?%>
+                  <%= link_to  "Edit", edit_project_path(project), style: 'text-decoration: none !important; color: black !important; font-weight: normal; margin: 0; padding: 0'  %>
+                  <%= link_to  "Delete", project_path(project), method: :delete, style: 'text-decoration: none !important; color: red !important; font-weight: normal; margin: 0; padding: 0' %>
+              <% end %>
+            </block_container>
+
+              
+            <% end %>
+          </my_container>
+
+          </div>
+
+
+        
+
+
+    </div>
+    
+
+  </div>
+</div>

@@ -1,0 +1,75 @@
+
+<div class="main_board center-align row">
+    <div class="title board_item text  block ">
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <h4 style="color: #8f8f8f !important; font-weight: normal;">Projeto</h4>
+        </div>
+      </div>
+
+      <%= form_with model: project, local: true do |f| %>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :title,  class:"validate input_field", placeholder:"Título do projeto"%>
+            <%= f.label :title, "Título:"%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :description,  class:"validate input_field", placeholder:"" %>
+            <%= f.label :description, "Descrição:"%>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.url_field :url,  class:"validate input_field", placeholder:"http:" %>
+            <%= f.label :url, "URL do projeto:"%>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.url_field :repo,  class:"validate input_field", placeholder:"http:" %>
+            <%= f.label :repo, "URL do repositório:"%>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.url_field :image_url,  class:"validate input_field", placeholder:"http:" %>
+            <%= f.label :image_url, "URL da imagem standart:"%>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.url_field :thumb_url,  class:"validate input_field", placeholder:"http" %>
+            <%= f.label :thumb_url, "URL da imagem thubnail:"%>
+          </div>
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.submit "Save", class:"waves-effect waves-light btn-small amber darken-2 white-text"%>
+          </div>
+        </div>
+
+      <% end %>
+
+
+    </div>
+</div>

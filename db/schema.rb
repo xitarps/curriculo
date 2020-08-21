@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_194811) do
+ActiveRecord::Schema.define(version: 2020_08_20_235148) do
 
   create_table "academics", force: :cascade do |t|
     t.string "institution"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2020_08_14_194811) do
     t.text "footer_text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "url"
+    t.string "image_url"
+    t.string "repo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "thumb_url"
   end
 
   create_table "tools", force: :cascade do |t|

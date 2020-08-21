@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   get 'visitors_json_today', to: 'pages#visitors_json_today'
   get 'visitors_json_week', to: 'pages#visitors_json_week'
   get 'visitors_json_yesterday', to: 'pages#visitors_json_yesterday'
-  
+
+  resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+
 end
