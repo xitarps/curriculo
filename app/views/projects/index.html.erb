@@ -14,13 +14,13 @@
 
     <div class="info_board center-align row"></div>
 
-    <% @colors= ['indigo', 'grey']%>
+    <% @colors= ['teal darken-2', 'indigo']%>
     <% @index = 0 %>
 
     
         
 
-          <div class="title board_item text text_greeting block <%= (@index.even?)? @colors[0] : @colors[1]%> darken-4" style="padding: 0.5em !important">
+          <div id="project_card_background" class="title board_item text text_greeting block <%= (@index.even?)? @colors[0] : @colors[1]%> darken-4" style="padding: 0.5em !important">
           
           <my_container>
             <% @projects.each do |project| %>
