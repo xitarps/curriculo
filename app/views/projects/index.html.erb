@@ -28,7 +28,7 @@
             <block_container title="click me :D!">
               <%= project.title %>
 
-              <a href="<%= (!(project.url.nil?))?(project.url):(project.repo)  %>">
+              <a href="<%= (!((project.url.empty? || project.url.nil?)))?(project.url):(project.repo)  %>">
                 <my_block style="background: url(<%= project.thumb_url%>);" >
                 </my_block>
               </a>
