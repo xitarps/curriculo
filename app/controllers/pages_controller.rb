@@ -37,6 +37,12 @@ class PagesController < ApplicationController
     render json: Visitor.all.where(created_at: Time.current.yesterday.beginning_of_day..Time.current.yesterday.end_of_day).order(created_at: :desc).group_by { |item| item.ip }
   end
 
+  def flush_visitors
+    Visitor.delete_all
+    flash[:notice] = "- flush - ok. -"
+    redirect_to :dashboard
+  end
+
 
   private
 

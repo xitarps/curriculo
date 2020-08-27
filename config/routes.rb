@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
+  get 'flush_visitors', to: 'pages#flush_visitors'
+
 end
