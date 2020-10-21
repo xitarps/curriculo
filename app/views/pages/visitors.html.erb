@@ -73,7 +73,7 @@
             for(k in res){
               
               let p = document.createElement('p')
-              p.innerHTML = `ip: ${k} <br>(${res[k].length})`
+              p.innerHTML = `ip: <a href= "https://pt.infobyip.com/ip-${k}.html">${k}</a> <br>(${res[k].length})`
               ips.appendChild(p)
 
             }
