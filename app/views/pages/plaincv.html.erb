@@ -41,7 +41,7 @@
 
     <h3>Experiência Profissional</h3>
     <p>
-      <% @career_infos.each do |career_info| %>
+      <% @career_infos.reverse.each do |career_info| %>
         &bull; <%= career_info.company %> - 
         <%= career_info.work_function %> 
         (<%= career_info.start_date.month %>/<%= career_info.start_date.year %>
